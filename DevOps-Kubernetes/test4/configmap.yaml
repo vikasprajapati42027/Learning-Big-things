@@ -1,0 +1,19 @@
+# Test 4: ConfigMap & Secrets — Inject config without rebuilding images
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  SPRING_PROFILES_ACTIVE: "production"
+  SERVER_PORT: "8080"
+  LOGGING_LEVEL_ROOT: "INFO"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-secrets
+type: Opaque
+data:
+  # Values are Base64 encoded: echo -n 'value' | base64
+  DB_PASSWORD: c2VjcmV0MTIz   # = "secret123"
+  JWT_SECRET: bXlKd3RTZWNyZXQ= # = "myJwtSecret"

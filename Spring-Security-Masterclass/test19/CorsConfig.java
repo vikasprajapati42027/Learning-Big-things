@@ -1,0 +1,1 @@
+//@Bean\n//CorsConfigurationSource corsSource() { ... }

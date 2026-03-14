@@ -1,0 +1,62 @@
+# Test 3: Kubernetes Deployment + Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-app
+  namespace: production
+spec:
+  replicas: 3                    # 3 instances running at all times
+  selector:
+    matchLabels:
+      app: spring-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1          # At most 1 pod down during update
+      maxSurge: 1                # At most 1 extra pod during update
+  template:
+    metadata:
+      labels:
+        app: spring-app
+    spec:
+      containers:
+        - name: spring-app
+          image: myregistry/spring-app:1.5.0
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          readinessProbe:         # K8s waits until app is ready before routing traffic
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:          # K8s restarts pod if this fails
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          envFrom:
+            - configMapRef:
+                name: app-config  # Load config from ConfigMap
+            - secretRef:
+                name: db-secrets  # Load secrets from K8s Secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-app-service
+spec:
+  selector:
+    app: spring-app
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

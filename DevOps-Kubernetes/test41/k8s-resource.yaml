@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-config-41
+data:
+  # Check EXPLANATION.md for specific DevOps/K8s logic
+  key: value

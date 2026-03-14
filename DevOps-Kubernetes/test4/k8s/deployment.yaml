@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservices-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: office
+  template:
+    metadata:
+      labels:
+        app: office
+    spec:
+      containers:
+      - name: employee
+        image: employee:latest
+      - name: department
+        image: department:latest

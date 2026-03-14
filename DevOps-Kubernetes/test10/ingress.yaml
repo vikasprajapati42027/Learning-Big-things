@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: employee-ingress
+spec:
+  rules:
+  - host: myapp.com
+    http:
+      paths:
+      - path: /employee
+        pathType: Prefix
+        backend:
+          service:
+            name: employee-service
+            port:
+              number: 80

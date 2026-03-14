@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: db-backup
+spec:
+  schedule: "0 0 * * *" # Every night at midnight
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: postgres:alpine
+            command: ["/bin/sh", "-c", "pg_dump -h db -U vikas > /backup/db.sql"]
+          restartPolicy: OnFailure

@@ -1,0 +1,199 @@
+DESIGN PATTERNS - 28 EXAMPLES (NUMBERED BY LEARNING DIFFICULTY)
+
+Note: All patterns are organized in the sequence recommended for learning (Easy to Hard).
+Each folder (e.g., DesignPatterns/01_Singleton) contains all necessary class files and a Main.java.
+
+============================================================
+PHASE 1: THE FOUNDATIONS (EASY)
+============================================================
+
+1. SINGLETON (DesignPatterns/01_Singleton)
+Intent: Ensure a class has only one instance.
+Example:
+public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) instance = new Singleton();
+        return instance;
+    }
+}
+
+2. DTO (DATA TRANSFER OBJECT) (DesignPatterns/02_DTO)
+Intent: Transfer data between processes/layers to reduce calls.
+Example:
+public class UserDTO {
+    private String name;
+    private String email;
+}
+
+3. DAO (DATA ACCESS OBJECT) (DesignPatterns/03_DAO)
+Intent: Separate data access logic from business logic.
+Example:
+public interface StudentDAO {
+    List<Student> getAllStudents();
+    void updateStudent(Student s);
+}
+
+4. MVC (MODEL-VIEW-CONTROLLER) (DesignPatterns/04_MVC)
+Intent: Separate data (Model), UI (View), and Logic (Controller).
+Example:
+public class StudentController {
+    public void updateView() { view.printStudentDetails(...); }
+}
+
+5. FACTORY METHOD (DesignPatterns/05_FactoryMethod)
+Intent: Interface for creating objects, allows subclasses to alter the type.
+Example:
+public interface Transport { void deliver(); }
+public abstract class Logistics { public abstract Transport createTransport(); }
+
+============================================================
+PHASE 2: BUILDING RELATIONSHIPS (INTERMEDIATE)
+============================================================
+
+6. ADAPTER (DesignPatterns/06_Adapter)
+Intent: Allows incompatible interfaces to collaborate.
+Example:
+public class PowerAdapter implements AmericanSocket {
+    public void providePower() { plug.getPowerWithRoundPins(); }
+}
+
+7. OBSERVER (DesignPatterns/07_Observer)
+Intent: Subscription mechanism to notify multiple objects.
+Example:
+public class Channel {
+    void upload(String video) { subscribers.forEach(s -> s.update(video)); }
+}
+
+8. STRATEGY (DesignPatterns/08_Strategy)
+Intent: Define a family of algorithms and make them interchangeable.
+Example:
+public interface PaymentStrategy { void pay(int amt); }
+
+9. TEMPLATE METHOD (DesignPatterns/09_TemplateMethod)
+Intent: Defines skeleton of an algorithm in a superclass.
+Example:
+public abstract class Game {
+    public final void play() { initialize(); startPlay(); endPlay(); }
+}
+
+10. FACADE (DesignPatterns/10_Facade)
+Intent: Provides a simplified interface to a complex system.
+Example:
+public class HomeTheaterFacade {
+    public void watchMovie() { lights.dim(); projector.on(); sound.on(); }
+}
+
+11. PROXY (DesignPatterns/11_Proxy)
+Intent: Placeholder for another object to control access.
+Example:
+public class ProxyInternet implements Internet {
+    public void connectTo(String host) { if(allowed) realInternet.connectTo(host); }
+}
+
+12. DECORATOR (DesignPatterns/12_Decorator)
+Intent: Attach new behaviors to objects dynamically.
+Example:
+public class MilkDecorator extends CoffeeDecorator {
+    public double getCost() { return decoratedCoffee.getCost() + 2.0; }
+}
+
+13. PROTOTYPE (DesignPatterns/13_Prototype)
+Intent: Copy existing objects without depending on their classes.
+Example:
+public interface PrototypeInterface extends Cloneable { PrototypeInterface clone(); }
+
+============================================================
+PHASE 3: ADVANCED ARCHITECTURES (HARD)
+============================================================
+
+14. ABSTRACT FACTORY (DesignPatterns/14_AbstractFactory)
+Intent: Produce families of related objects.
+Example:
+public interface FurnitureFactory { Chair createChair(); Sofa createSofa(); }
+
+15. BUILDER (DesignPatterns/15_Builder)
+Intent: Construct complex objects step by step.
+Example:
+public class House {
+    public static class HouseBuilder {
+        public HouseBuilder setWalls(String w) { ... }
+        public House build() { return new House(this); }
+    }
+}
+
+16. COMPOSITE (DesignPatterns/16_Composite)
+Intent: Compose objects into tree structures.
+Example:
+public interface FileSystemComponent { void showDetails(); }
+
+17. COMMAND (DesignPatterns/17_Command)
+Intent: Turns a request into a stand-alone object.
+Example:
+public interface CommandInterface { void execute(); }
+
+18. ITERATOR (DesignPatterns/18_Iterator)
+Intent: Traverse elements of a collection without exposing its structure.
+Example:
+public interface MyIterator { boolean hasNext(); Object next(); }
+
+19. BRIDGE (DesignPatterns/19_Bridge)
+Intent: Split a large class into Abstraction and Implementation.
+Example:
+public abstract class Shape { protected Color color; }
+
+20. FLYWEIGHT (DesignPatterns/20_Flyweight)
+Intent: Share common parts of state to save RAM.
+Example:
+public class TreeFactory {
+    public static TreeType getTreeType(String name, String color) { ... }
+}
+
+21. SERVICE LAYER (DesignPatterns/21_ServiceLayer)
+Intent: Establishes a set of available operations and coordinates responses.
+Example:
+public class UserServiceImpl implements UserService {
+    public void registerUser(String name) { ... }
+}
+
+22. REPOSITORY (DesignPatterns/22_Repository)
+Intent: Mediates between domain and data mapping layers.
+Example:
+public interface UserRepository { void add(String user); List<String> getAll(); }
+
+23. CHAIN OF RESPONSIBILITY (DesignPatterns/23_ChainOfResponsibility)
+Intent: Pass requests along a chain of handlers.
+Example:
+public abstract class Logger {
+    public void logMessage(int level, String msg) { ... nextLogger.logMessage(...); }
+}
+
+============================================================
+PHASE 4: SYSTEMIC EXPERT (EXPERT)
+============================================================
+
+24. STATE (DesignPatterns/24_State)
+Intent: Object alters behavior when internal state changes.
+Example:
+public class PlayingState implements State { ... }
+
+25. MEDIATOR (DesignPatterns/25_Mediator)
+Intent: Reduce chaotic dependencies between objects.
+Example:
+public class ChatRoom { public static void showMessage(User u, String m) { ... } }
+
+26. MEMENTO (DesignPatterns/26_Memento)
+Intent: Save and restore previous state of an object.
+Example:
+public class Editor { public Memento save() { ... } }
+
+27. VISITOR (DesignPatterns/27_Visitor)
+Intent: Separate algorithms from the objects on which they operate.
+Example:
+public interface Visitor { double visit(Liquor l); }
+
+28. INTERPRETER (DesignPatterns/28_Interpreter)
+Intent: Define grammar and interpreter for a language.
+Example:
+public interface Expression { boolean interpret(String c); }

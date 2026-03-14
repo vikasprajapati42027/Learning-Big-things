@@ -1,0 +1,1 @@
+import java.util.LinkedHashMap;\npublic class LRU<K,V> extends LinkedHashMap<K,V> {\n    private int cap;\n    public LRU(int cap) { super(cap, 0.75f, true); this.cap = cap; }\n    protected boolean removeEldestEntry(java.util.Map.Entry e) { return size() > cap; }\n}

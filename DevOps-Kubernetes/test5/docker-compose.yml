@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  employee:
+    build: ./employee-service
+    ports: ["8080:8080"]
+  department:
+    build: ./department-service
+    ports: ["8081:8081"]

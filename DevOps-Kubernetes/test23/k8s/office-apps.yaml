@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: office-stack
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: office
+  template:
+    metadata:
+      labels:
+        app: office
+    spec:
+      containers:
+      - name: emp-svc
+        image: employee:v1
+      - name: dept-svc
+        image: department:v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: employee-service
+spec:
+  selector:
+    app: office
+  ports:
+    - port: 8080

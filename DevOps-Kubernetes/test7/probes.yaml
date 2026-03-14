@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-probes
+spec:
+  template:
+    spec:
+      containers:
+      - name: employee-app
+        image: employee-service:v1
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
