@@ -6,6 +6,8 @@
  */
 public class Q7_SQL_Queries {
     public void demo() {
-        System.out.println("Executing SQL_Queries Scenario 7 Example...");
+        System.out.println("SELECT id FROM users WHERE active = true");
+        System.out.println("UNION");
+        System.out.println("SELECT id FROM admins;");
     }
 }

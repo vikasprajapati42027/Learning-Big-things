@@ -9,16 +9,25 @@
  * 2. Key implementation patterns used in modern enterprise Java.
  * 3. Handling edge cases and ensuring thread-safety/data-integrity.
  */
+import java.util.concurrent.*;
 
 public class Q1_Scenario {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("--- Mastering Advanced Java Engineering: Step 1 ---");
-        
-        // Demonstration of Advanced Java Engineering logic
         executeCoreLogic();
     }
 
-    private static void executeCoreLogic() {
+    private static void executeCoreLogic() throws InterruptedException {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+        CountDownLatch latch = new CountDownLatch(2);
+        Runnable plan = () -> {
+            System.out.println("Executing enterprise-grade task.");
+            latch.countDown();
+        };
+        executor.submit(plan);
+        executor.submit(plan);
+        latch.await();
+        executor.shutdown();
         System.out.println("Logic for Advanced Java Engineering (Scenario 1) executed successfully.");
     }
 }

@@ -6,6 +6,7 @@
  */
 public class Q9_SQL_Queries {
     public void demo() {
-        System.out.println("Executing SQL_Queries Scenario 9 Example...");
+        System.out.println("CREATE INDEX idx_status ON orders(status);");
+        System.out.println("ALTER TABLE orders SWITCH PARTITION ... (rebuild to keep index maintained);");
     }
 }

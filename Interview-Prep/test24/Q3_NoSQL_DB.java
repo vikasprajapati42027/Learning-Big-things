@@ -6,6 +6,8 @@
  */
 public class Q3_NoSQL_DB {
     public void demo() {
-        System.out.println("Executing NoSQL_DB Scenario 3 Example...");
+        System.out.println("Code: rs.initiate()");
+        System.out.println("Query: rs.status()");
+        System.out.println("Docker: docker run -d --name mongo-primary mongo:6");
     }
 }

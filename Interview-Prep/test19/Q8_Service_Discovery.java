@@ -4,8 +4,11 @@
  * 
  * Key Highlights: Eureka, Zookeeper, Config Server
  */
+import java.util.Map;
+
 public class Q8_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 8 Example...");
+        Map<String, String> metadata = Map.of("version", "1.0", "region", "us-east");
+        System.out.println("Service metadata matches client selector: " + metadata);
     }
 }

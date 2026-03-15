@@ -6,6 +6,7 @@
  */
 public class Q4_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 4 Example...");
+        System.out.println("Durability: once committed the WAL ensures recovery after crash.");
+        System.out.println("Replay log entries to rebuild the state.");
     }
 }

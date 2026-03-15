@@ -1,0 +1,151 @@
+Git & Version Control Guide
+
+1. What is Git?
+- Distributed VCS tracking history.
+
+2. What commands initialize repos?
+- `git init`, `git clone`.
+
+3. How do you stage files?
+- `git add <paths>`.
+
+4. How to commit changes?
+- `git commit -m "message"`.
+
+5. What is branching?
+- `git branch`, `git checkout`, `git switch`.
+
+6. What is merging?
+- `git merge <branch>` integrates histories.
+
+7. What is rebasing?
+- Move commits onto new base for linear history.
+
+8. How to resolve conflicts?
+- Edit files, `git add`, `git commit`.
+
+9. What is `git status`?
+- Shows modified/staged files.
+
+10. How do you view history?
+- `git log`, `git log --oneline --graph`.
+
+11. What is .gitignore?
+- Lists files Git should ignore.
+
+12. How to push to remote?
+- `git push origin main`.
+
+13. How to fetch updates?
+- `git fetch`, then inspect/merge.
+
+14. What is `git pull`?
+- Fetch + merge (shortcut).
+
+15. How to create tags?
+- `git tag v1.0`, push with `git push origin v1.0`.
+
+16. What is stash?
+- Save work temporarily: `git stash`, `git stash pop`.
+
+17. How to cherry-pick?
+- `git cherry-pick <commit>` to copy commit to current branch.
+
+18. How to view diffs?
+- `git diff`, `git diff --staged`.
+
+19. What is fork?
+- Copy repo to personal account before creating PR.
+
+20. How do you create PR?
+- Push branch, open PR in GitHub/GitLab.
+
+21. What is CI in Git?
+- Automate builds/tests on push/PR (GitHub Actions, Jenkins).
+
+22. How to revert a commit?
+- `git revert <commit>` to create undo commit.
+
+23. How to reset history?
+- `git reset --hard <commit>` (rewrites history; caution).
+
+24. What is a commit hook?
+- Scripts in `.git/hooks` executed on commit/push.
+
+25. How to sign commits?
+- `git commit -S` with GPG keys for verification.
+
+26. What is submodule?
+- Reference to another Git repo; use `git submodule add`.
+
+27. How to squash commits?
+- `git rebase -i` and mark as `squash`.
+
+28. What is release branching?
+- Branch per release (e.g., `release/v1.0`).
+
+29. How to perform a bisect?
+- `git bisect start`, mark good/bad to find bug commit.
+
+30. Why use `git blame`?
+- Show who last changed each line.
+
+31. What is `git reflog`?
+- Records branch references; recover lost commits.
+
+32. How to share code safely?
+- Create feature branch, push, open PR for review.
+
+33. What are protected branches?
+- Disable force pushes, require PRs or status checks.
+
+34. How to set upstream?
+- `git push -u origin feature`.
+
+35. What is `git remote set-url`?
+- Update remote repository URL.
+
+36. How to auto-merge?
+- Use merge/pull request configured with CI; include `merge` strategy.
+
+37. How to handle large files?
+- Use Git LFS or store externally.
+
+38. What is `git archive`?
+- Export repository snapshot as zip/tar.
+
+39. How to list branches?
+- `git branch` for local, `git branch -r` for remote.
+
+40. How to apply patch?
+- `git apply` or `git am` for patches.
+
+41. How to inspect commit contents?
+- `git show <commit>` displays diff.
+
+42. How to clean working tree?
+- `git clean -fd` removes untracked files.
+
+43. What is `git bisect` used for?
+- Locate commit introducing regression via binary search.
+
+44. How to check remote URLs?
+- `git remote -v`.
+
+45. Why use .gitattributes?
+- Control eol, diff drivers, LFS behavior.
+
+46. What is upstream tracking?
+- Local branch linked to remote branch for pull/push defaults.
+
+47. How to undo local commits?
+- `git reset --soft` to keep index, `--mixed` to unstage, `--hard` to drop changes.
+
+48. How to tag annotated release?
+- `git tag -a v1.0 -m "Release"` and `git push origin v1.0`.
+
+49. What is `git mergetool`?
+- Launch GUI (meld, kdiff3) to resolve conflicts.
+
+50. How to set commit template?
+- `git config commit.template .gitmessage` and create file with commit guidelines.

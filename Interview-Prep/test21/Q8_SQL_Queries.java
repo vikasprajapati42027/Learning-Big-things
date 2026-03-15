@@ -6,6 +6,7 @@
  */
 public class Q8_SQL_Queries {
     public void demo() {
-        System.out.println("Executing SQL_Queries Scenario 8 Example...");
+        System.out.println("UPDATE products SET price = price * 1.1 WHERE category = 'premium';");
+        System.out.println("DELETE FROM inventory WHERE qty = 0;");
     }
 }

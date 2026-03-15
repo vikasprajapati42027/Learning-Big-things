@@ -6,6 +6,9 @@
  */
 public class Q9_Resilience {
     public void demo() {
-        System.out.println("Executing Resilience Scenario 9 Example...");
+        System.out.println("Sending request to two replicas for hedging:");
+        System.out.println("  Replica A responded in 30ms");
+        System.out.println("  Replica B responded in 45ms");
+        System.out.println("Using faster Replica A output.");
     }
 }

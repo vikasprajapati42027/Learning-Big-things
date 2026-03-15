@@ -4,8 +4,15 @@
  * 
  * Key Highlights: Eureka, Zookeeper, Config Server
  */
+import java.util.HashSet;
+import java.util.Set;
+
 public class Q7_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 7 Example...");
+        Set<String> services = new HashSet<>();
+        services.add("notifications");
+        System.out.println("Registered services: " + services);
+        services.remove("notifications");
+        System.out.println("Deregistered notifications, current registry: " + services);
     }
 }

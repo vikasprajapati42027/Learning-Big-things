@@ -4,8 +4,11 @@
  * 
  * Key Highlights: Kafka, RabbitMQ, Publisher-Subscriber
  */
+import java.util.List;
+
 public class Q9_Event_Driven {
     public void demo() {
-        System.out.println("Executing Event_Driven Scenario 9 Example...");
+        List<String> subscribers = List.of("Billing", "Analytics", "Notification");
+        subscribers.forEach(subscriber -> System.out.println("Fan-out event delivered to " + subscriber));
     }
 }

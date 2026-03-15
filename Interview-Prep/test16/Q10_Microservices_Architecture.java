@@ -6,6 +6,7 @@
  */
 public class Q10_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 10 Example...");
+        System.out.println("Concept 10: Security and compliance per bounded context.");
+        System.out.println("Each service encrypts its own data and rotates keys in isolation.");
     }
 }

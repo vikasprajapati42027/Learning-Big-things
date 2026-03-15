@@ -4,8 +4,13 @@
  * 
  * Key Highlights: Eureka, Zookeeper, Config Server
  */
+import java.util.*;
+
 public class Q4_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 4 Example...");
+        Properties config = new Properties();
+        config.setProperty("payment.timeout", "2s");
+        config.setProperty("order.retry", "3");
+        System.out.println("Config server delivered: " + config);
     }
 }

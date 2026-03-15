@@ -6,6 +6,15 @@
  */
 public class Q8_Resilience {
     public void demo() {
-        System.out.println("Executing Resilience Scenario 8 Example...");
+        double latency = 120.5;
+        double errorRate = 0.03;
+        System.out.println("Metrics captured:");
+        System.out.println("  Latency = " + latency + "ms");
+        System.out.println("  Error rate = " + (errorRate * 100) + "%");
+        if (latency > 100 || errorRate > 0.05) {
+            System.out.println("Triggering alert channel for resilience teams.");
+        } else {
+            System.out.println("Metrics healthy.");
+        }
     }
 }

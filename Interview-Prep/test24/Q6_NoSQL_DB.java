@@ -6,6 +6,8 @@
  */
 public class Q6_NoSQL_DB {
     public void demo() {
-        System.out.println("Executing NoSQL_DB Scenario 6 Example...");
+        System.out.println("Code: awaitReplication() ensures writes reach secondaries.");
+        System.out.println("Query: db.orders.find({status:'pending'})");
+        System.out.println("Docker: docker run -d --name cassandra cassandra:4");
     }
 }

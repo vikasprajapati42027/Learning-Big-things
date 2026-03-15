@@ -1,0 +1,201 @@
+SDLC & Agile 50 Q&A
+
+1. What is SDLC?
+- Basic: Software Development Life Cycle—the phases from idea to retirement.
+- Advanced: Formal set of processes (requirements, design, development, testing, deployment, maintenance) with governance, metrics, and continuous improvement loops.
+
+2. Name SDLC phases.
+- Basic: Requirements, Design, Implementation, Testing, Deployment, Maintenance.
+- Advanced: Add Planning, Analysis, Transition, and Retirement; embed feedback loops like Agile retrospectives.
+
+3. How does Agile fit into SDLC?
+- Basic: Agile is an iterative approach within SDLC allowing shorter cycles.
+- Advanced: Agile transforms SDLC into incremental releases with continuous delivery, adaptive planning, and built-in customer feedback (Scrum/Kanban).
+
+4. What is Waterfall?
+- Basic: Linear SDLC where each phase completes before the next.
+- Advanced: Suitable when requirements are fixed; lacks flexibility, but can integrate formal reviews and stage gates.
+
+5. Explain Scrum.
+- Basic: Agile framework with sprints, daily stand-ups, product/backlog.
+- Advanced: Scrum Master removes impediments, product owner manages ROI, inspect/ adapt via retrospectives.
+
+6. What is a Sprint?
+- Basic: Time-boxed iteration (usually 2-4 weeks) to deliver increment.
+- Advanced: Sprint goal aligns delivery with value; sprint review demonstrates working software; sprint planning sets backlog commitment.
+
+7. Define Kanban.
+- Basic: Visual workflow board limiting WIP.
+- Advanced: Continuous flow, explicit policies, metrics like lead time/cycle time, Cumulative Flow Diagram for bottlenecks.
+
+8. What's the difference between Agile and DevOps?
+- Basic: Agile covers development process; DevOps ensures collaboration between dev+ops for faster releases.
+- Advanced: Agile transforms requirements to backlog; DevOps automates delivery, monitoring, and continuous feedback.
+
+9. What is user story?
+- Basic: Requirement phrased as “As a [role], I want [feature], so that [value].”
+- Advanced: Include Acceptance Criteria, INVEST (Independent, Negotiable, Valuable, Estimable, Small, Testable).
+
+10. What are acceptance criteria?
+- Basic: Conditions that must be met for a story to be done.
+- Advanced: Use Gherkin Given/When/Then and tie to automated regression tests.
+
+11. Define backlog grooming.
+- Basic: Review and prioritize backlog items.
+- Advanced: Split large stories, estimate with relative points, align with roadmap/PI planning.
+
+12. What is velocity?
+- Basic: Story points completed per sprint.
+- Advanced: Use rolling averages to forecast capacity and detect scope creep while adjusting team commitments.
+
+13. How is quality assured?
+- Basic: Testing phase with unit/integration tests.
+- Advanced: Shift-left testing, automated CI, TDD/BDD, static analysis, SLO-driven monitoring.
+
+14. Explain CI/CD.
+- Basic: Continuous Integration merges code; Continuous Delivery automates deployments.
+- Advanced: Gatekeeper pipelines with policy-as-code, canary releases, blue-green deployments for zero downtime.
+
+15. What is pair programming?
+- Basic: Two developers share one workstation.
+- Advanced: Shared ownership, knowledge transfer, pair rotation fosters collective code quality.
+
+16. Define “Definition of Done.”
+- Basic: Checklist ensuring story completeness.
+- Advanced: Includes testing, documentation, code reviews, security scans, deployments to staging.
+
+17. What is a retrospective?
+- Basic: Sprint-end meeting to inspect and adapt.
+- Advanced: Use techniques like Start/Stop/Continue, 4Ls, surface action items, track improvements.
+
+18. Describe test-driven development.
+- Basic: Write tests before code.
+- Advanced: Tests drive design, prevent regressions, integrate with Jenkins/GitHub Actions for gating.
+
+19. How do you handle technical debt?
+- Basic: Track debt as stories or spikes.
+- Advanced: Quantify via code quality metrics, allocate dedicated refactor time, include debt in planning cadence.
+
+20. What is API contract testing?
+- Basic: Validate API schema remains stable.
+- Advanced: Automate contract verification with tools like Pact, integrate with CI/CD, version contracts.
+
+21. How does SDLC address security?
+- Basic: Security reviews and tests within phases.
+- Advanced: Embed threat modeling, use tools such as AWS Inspector, SAST/DAST, secure coding checklists.
+
+22. Explain change control board.
+- Basic: Group that approves major changes.
+- Advanced: Implement lightweight change advisory boards (CAB), use approval gates and automated deployment policies.
+
+23. What is scope creep?
+- Basic: Gradual addition of requirements beyond original scope.
+- Advanced: Manage with change requests, guardrails, backlog refinement, measure via variance controls.
+
+24. How do you capture requirements?
+- Basic: Use interviews, documents, user stories.
+- Advanced: Combine story mapping, prototypes, event storming, leverage behavioral analytics.
+
+25. What is a swimlane diagram?
+- Basic: Visualizes process across roles.
+- Advanced: Use swimlanes to map SDLC steps, highlight handoffs, expose delays for automation.
+
+26. How do you track progress?
+- Basic: Burndown/burnup charts.
+- Advanced: Use flow metrics (cycle time, throughput), dashboards (Jira, Azure DevOps), and predictive forecasting.
+
+27. What's an Epic?
+- Basic: Large feature broken into stories.
+- Advanced: Align epics to strategic themes, track via objectives/OKRs, review dependencies.
+
+28. How do you manage releases?
+- Basic: Aggulate stories into release version.
+- Advanced: Use release trains, feature flags, release notes automation, coordinate cross-team dependencies.
+
+29. What is regression testing?
+- Basic: Verify new changes don’t break existing functionality.
+- Advanced: Automated regression suites, test orchestration, risk-based prioritization.
+
+30. Describe a burn-up chart.
+- Basic: Shows completed work vs total scope.
+- Advanced: Visualizes scope changes and future predictions for release completion.
+
+31. What is a spike?
+- Basic: Time-boxed research to clarify complex stories.
+- Advanced: Document findings, convert to backlog entries, limit to 1-2 days to avoid runaway effort.
+
+32. How does Agile manage dependencies?
+- Basic: Identify in planning and coordinate sequencing.
+- Advanced: Use dependency boards, program increment planning, enable architectural runway and API contracts.
+
+33. What is a product roadmap?
+- Basic: Timeline of planned features.
+- Advanced: Outcome-focused roadmap with hypotheses, milestones, customer feedback loops, and de-risking experiments.
+
+34. Explain release retrospectives.
+- Basic: Post-release review of what worked.
+- Advanced: Combine DevOps metrics (deployment frequency, MTTR) with customer feedback to drive improvements.
+
+35. How do you handle bug triage?
+- Basic: Categorize by severity and priority.
+- Advanced: Use SLAs, dedicated bug-fix sprints, and link tickets to customer impact and service-level objectives.
+
+36. What’s the role of documentation?
+- Basic: Capture requirements and design.
+- Advanced: Maintain living docs (Confluence, docs-as-code) and keep docs in source control tied to release versions.
+
+37. How do you ensure compliance during SDLC?
+- Basic: Adhere to regulatory checklists (PCI, HIPAA).
+- Advanced: Automate evidence collection, integrate governance tools (ControlUp), and embed compliance in pipelines.
+
+38. What is incremental delivery?
+- Basic: Build product in small increments.
+- Advanced: Each increment is shippable, validated by customer, reduces risk.
+
+39. How do you prioritize backlog?
+- Basic: Business value and urgency.
+- Advanced: Use WSJF (Weighted Shortest Job First), personas, opportunity scoring, and ROI calculations.
+
+40. What is continuous improvement?
+- Basic: Learn from retrospectives.
+- Advanced: Implement Kaizen, metrics-driven experiments, improvement backlog.
+
+41. How do you manage distributed teams?
+- Basic: Daily stand-ups and shared backlog tools.
+- Advanced: Synchronize teams via rituals, use asynchronous documentation, align time zones, maintain a culture deck.
+
+42. Explain DevSecOps.
+- Basic: Automation of security scans within DevOps.
+- Advanced: Shift-left security, policy-as-code, chatops alerts, and threat modeling per CI pipeline.
+
+43. What is mean by “build once, deploy many”?
+- Basic: Create artifacts once and reuse.
+- Advanced: Use immutable artifacts, store in artifact repositories, support multiple environments via environment-specific config.
+
+44. How do you measure customer feedback?
+- Basic: Surveys, demo feedback forms.
+- Advanced: Net Promoter Score, behavioral analytics, direct interviews integrated into backlog prioritization.
+
+45. What is a value stream map?
+- Basic: Visualize flow from request to delivery.
+- Advanced: Identify waste, automate handoffs, optimize for lead time.
+
+46. How do you maintain quality gates?
+- Basic: Manual QA sign-off.
+- Advanced: Use automated policy gates, code coverage thresholds, security scans, and risk scoring for gating.
+
+47. Explain release automation.
+- Basic: Scripted deployments.
+- Advanced: Pipeline orchestration with rollback strategies, secrets injection, and environment-provisioning (Terraform/Ansible) as code.
+
+48. How do you handle legacy systems?
+- Basic: Create interfaces for new features.
+- Advanced: Adopt strangler patterns, use anti-corruption layers, wrap legacy in APIs, gradually migrate functionality.
+
+49. What is observability in SDLC?
+- Basic: Monitor runtime health.
+- Advanced: Instrument code, correlate logs/traces/metrics, define SLO/SLI and use alerts that feed back into backlog.
+
+50. How do you scale Agile in enterprises?
+- Basic: Add more Scrum teams.
+- Advanced: Scale frameworks like SAFe/LeSS/Nexus, coordinate with Portfolio Management, align architecture runway.

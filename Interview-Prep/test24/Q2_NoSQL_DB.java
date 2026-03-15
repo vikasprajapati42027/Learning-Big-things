@@ -6,6 +6,8 @@
  */
 public class Q2_NoSQL_DB {
     public void demo() {
-        System.out.println("Executing NoSQL_DB Scenario 2 Example...");
+        System.out.println("Code: db.orders.createIndex({customerId:1})");
+        System.out.println("Query: db.orders.find({customerId:123})");
+        System.out.println("Docker: docker run -d --name redis redis:7");
     }
 }

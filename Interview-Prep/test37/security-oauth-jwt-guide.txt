@@ -1,0 +1,151 @@
+OAuth + JWT Service Guide
+
+1. What is OAuth 2.0?
+- Authorization framework enabling clients to obtain limited access on behalf of users using tokens.
+
+2. Difference between OAuth and authentication?
+- OAuth is authorization; OpenID Connect builds authentication on top of OAuth.
+
+3. What are OAuth roles?
+- Resource owner, client, authorization server, resource server.
+
+4. How does Authorization Code flow work?
+- Client redirects user to auth server, obtains code, exchanges for tokens securely.
+
+5. What is PKCE?
+- Proof Key for Code Exchange adds challenge/ verifier to Authorization Code flow for public clients.
+
+6. What tokens does OAuth issue?
+- Access token for APIs, refresh token to obtain new access tokens, ID token (OIDC).
+
+7. What is JWT?
+- JSON Web Token contains header, payload (claims), signature; used as bearer token.
+
+8. What is the structure of JWT?
+- Header (alg, typ), Payload (claims), Signature (signed with secret/key).
+
+9. How to validate JWT?
+- Verify signature, check expiration (`exp`), issuer (`iss`), audience (`aud`).
+
+10. How do you store tokens securely?
+- Store access token in HTTP-only secure cookie or local storage with caution; rotate refresh tokens.
+
+11. What is token revocation?
+- Authorization server tracks token identifiers to revoke before natural expiration.
+
+12. How does refresh token rotation work?
+- Issue new refresh token with each refresh, mark previous as invalid to prevent reuse.
+
+13. What is mutual TLS (mTLS)?
+- Clients present certificate to auth server to prove identity before token issuance.
+
+14. What’s a scope?
+- Requested permissions describing allowed actions (e.g., `read:orders`).
+
+15. How to use claims?
+- Embed user roles or permissions to make authorization decisions in resource server.
+
+16. How do you protect APIs?
+- Use API Gateway validating JWTs, pass claims to microservices, enforce scopes.
+
+17. How do you handle token expiration?
+- Use refresh tokens to get new access tokens; handle `401` to prompt refresh.
+
+18. What is audience (`aud`) claim?
+- Identifies intended recipient; resource server must match to token.
+
+19. How is OAuth secured in cloud?
+- Use managed services (Cognito, IAM) or custom identity providers; store secrets in Secrets Manager.
+
+20. Explain token introspection.
+- Endpoint to validate opaque tokens and retrieve metadata on demand.
+
+21. How to handle multiple identity providers?
+- Use federation: configure OIDC/SAML providers, map to unified claims for your service.
+
+22. Rate limiting for token endpoint?
+- Protect with throttling, CAPTCHA, allowlist client IDs, monitor abnormal usage.
+
+23. How to log OAuth flows?
+- Capture events (token issuance, revocation) in CloudTrail or custom logs.
+
+24. How to support multi-tenancy?
+- Include tenant ID in claims, validate against resource ownership.
+
+25. Use of JWTs in microservices?
+- Pass JWT between services via headers; use shared public key for verification.
+
+26. What is key rotation?
+- Rotate signing keys (JWKs) and publish new ones while supporting old for short time.
+
+27. How do you manage secrets?
+- Store keys/secrets in Vault or KMS; never hard-code in applications.
+
+28. How to handle logout?
+- Revoke tokens, clear cookies, and optionally propagate to clients via front-channel/back-channel.
+
+29. What is token binding?
+- Tie token to TLS session or client key to prevent replay.
+
+30. How do you implement consent screen?
+- Show scopes and data usage; log user approval decision for audits.
+
+31. How to integrate social login?
+- Use OAuth federation to accept Google/Apple login, map to internal identities.
+
+32. What is a refresh token rotation policy?
+- Limit reuse, use sliding expiration, log refresh events for anomaly detection.
+
+33. How do you secure mobile auth flows?
+- Use PKCE, avoid embedded browsers, store tokens with secure storage.
+
+34. What about logout propagation?
+- Notify reliant services to clear session caches or push invalidation events.
+
+35. How to troubleshoot JWT issues?
+- Decode tokens, check signature, verify `exp`, `aud`, `iss`, and claim integrity.
+
+36. How to implement token caching?
+- Cache introspection results briefly to avoid repeated calls, refresh when TTL expired.
+
+37. How to handle stuck refresh tokens?
+- Invalidate by checking reuse count; alert and prompt user login again.
+
+38. How to integrate with Kubernetes?
+- Use sidecar (OAuth2 proxy) to validate JWT before requests hit pods.
+
+39. How to support API versioning?
+- Include version in `aud` or `scope`, route tokens accordingly.
+
+40. What is JSON Web Key Set (JWKS)?
+- Endpoint exposing public keys; clients fetch to verify JWTs.
+
+41. How do you secure client secrets?
+- Store in Secrets Manager with rotation; use IAM roles/middleware.
+
+42. How to implement rate limits with OAuth?
+- Token bucket counters keyed by client and scope.
+
+43. What is refresh token reuse detection?
+- Track token ID, reject if reused to prevent replay.
+
+44. How to build custom auth server?
+- Use frameworks (Spring Security OAuth2, Auth0 stack), implement endpoints for grant types.
+
+45. How to test OAuth flows?
+- Automate with Postman/Insomnia, use mocks for identity provider, validate JWT claims in tests.
+
+46. How to handle multiple audiences?
+- Include array of `aud` or issue scoped tokens per service.
+
+47. What is the role of scopes vs roles?
+- Scopes express allowed actions; roles group permissions for easier management.
+
+48. How to monitor anomalous token use?
+- Analyze logs for spikes, unusual geolocations, or rapid refreshes.
+
+49. What is the difference between opaque tokens and JWT?
+- Opaque require introspection; JWT self-contained with signed claims.
+
+50. How to document your service?
+- Publish interactive API docs (swagger), describe OAuth flows, required headers, error codes, and revoke endpoints.

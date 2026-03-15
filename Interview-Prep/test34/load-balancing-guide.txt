@@ -1,0 +1,32 @@
+Load Balancing Principles
+
+1. What is load balancing?
+- Distributes incoming network traffic across multiple servers to improve responsiveness and availability.
+
+2. Types of load balancers?
+- Basic: Layer 4 (TCP) and Layer 7 (HTTP) load balancers.
+- Advanced: Global load balancing (Route 53), Application Load Balancer, and Network Load Balancer using target groups.
+
+3. Health checks?
+- Monitor endpoints to remove unhealthy instances automatically.
+
+4. Session persistence?
+- Sticky sessions keep user tied to same backend; use cookies or client IP affinity.
+
+5. Security?
+- Integrate with WAF to block bad actors; use TLS termination.
+
+6. Scaling?
+- Autoscaling groups register with load balancer so capacity grows with traffic.
+
+7. Algorithms?
+- Round robin, least connections, IP hash, weighted algorithms.
+
+8. Cross-zone?
+- Distribute traffic evenly across Availability Zones.
+
+9. Failover?
+- Use health checks + DNS failover for disaster.
+
+10. Logging?
+- Capture access logs for auditing/analytics.

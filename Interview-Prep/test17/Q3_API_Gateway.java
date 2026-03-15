@@ -6,6 +6,14 @@
  */
 public class Q3_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 3 Example...");
+        int limit = 2;
+        int requestCount = 3;
+        for (int i = 1; i <= requestCount; i++) {
+            if (i > limit) {
+                System.out.println("Rate limit reached on request " + i + "; rejecting.");
+            } else {
+                System.out.println("Request " + i + " processed.");
+            }
+        }
     }
 }

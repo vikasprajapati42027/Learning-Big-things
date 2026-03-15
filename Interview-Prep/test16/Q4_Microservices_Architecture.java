@@ -6,6 +6,7 @@
  */
 public class Q4_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 4 Example...");
+        System.out.println("Concept 4: API Gateway handles routing, auth, and monitoring.");
+        System.out.println("Gateway adds correlation IDs and rate limits per tenant.");
     }
 }

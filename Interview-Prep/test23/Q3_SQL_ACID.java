@@ -6,6 +6,7 @@
  */
 public class Q3_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 3 Example...");
+        System.out.println("Isolation levels: READ COMMITTED vs SERIALIZABLE steer visibility.");
+        System.out.println("Serializable prevents phantom reads by locking ranges.");
     }
 }

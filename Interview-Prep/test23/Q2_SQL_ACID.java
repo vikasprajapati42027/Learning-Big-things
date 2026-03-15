@@ -6,6 +6,7 @@
  */
 public class Q2_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 2 Example...");
+        System.out.println("Consistency: schema constraints remain true after transaction.");
+        System.out.println("Before commit ensure foreign keys and checks hold.");
     }
 }

@@ -6,6 +6,7 @@
  */
 public class Q9_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 9 Example...");
+        System.out.println("Checkpointing flushes dirty pages after commit for durability.");
+        System.out.println("No data lost even if server crashes immediately after commit.");
     }
 }

@@ -1,0 +1,201 @@
+AWS Basics / Advanced Q&A
+
+1. What is the AWS Shared Responsibility Model?
+   - Basic: AWS manages the security of the cloud (physical infrastructure, network).
+   - Advanced: Customers secure in the cloud (applications, data, IAM). Compliance frameworks map controls to this split.
+
+2. How do you design for high availability?
+   - Basic: Use multiple Availability Zones with elastic load balancing and autoscaling groups.
+   - Advanced: Add multi-region failover, Route 53 health checks, global databases (Aurora Global DB) with cross-region replicas.
+
+3. Explain AWS Networking essentials.
+   - Basic: VPC, subnets, Internet Gateway, NAT Gateway, security groups, NACLs.
+   - Advanced: VPC endpoints, Transit Gateway for hub-spoke, AWS Global Accelerator for latency-sensitive apps.
+
+4. How does AWS handle compute scaling?
+   - Basic: EC2 Auto Scaling and Elastic Beanstalk manage instances.
+   - Advanced: Use AWS Lambda and Step Functions for event-driven scaling and lifecycle hooks for timely code deployment.
+
+5. Describe storage options.
+   - Basic: S3 for objects, EBS for block, EFS for shared file systems.
+   - Advanced: S3 Intelligent-Tiering, S3 Glacier Deep Archive, using FSx for Lustre with HPC workloads.
+
+6. What are AWS database services?
+   - Basic: RDS (MySQL, Postgres), DynamoDB (NoSQL), Redshift (data warehouse).
+   - Advanced: Aurora Serverless v2, DynamoDB global tables, Redshift RA3 nodes with AQUA caching.
+
+7. Explain security & compliance tooling.
+   - Basic: IAM, roles, policies, CloudTrail, Config.
+   - Advanced: AWS Control Tower, Security Hub, Detective, GuardDuty, IAM Access Analyzer, Service Control Policies in Organizations.
+
+8. Describe deployment automation.
+   - Basic: CloudFormation or CDK templates define infrastructure as code.
+   - Advanced: Use AWS CodePipeline/CodeBuild, feature flags with AWS AppConfig, drift detection, and change management guardrails.
+
+9. How do you monitor & observe workloads?
+   - Basic: CloudWatch metrics/logs/alarms, SNS for notifications.
+   - Advanced: Use CloudWatch Contributor Insights, X-Ray tracing, custom metrics, OpenTelemetry exporters to AWS Distro.
+
+10. Cost optimization strategies?
+    - Basic: Use AWS Pricing Calculator, choose right instance sizes, turn off non-production resources.
+    - Advanced: Use Reserved/Save Plans, AWS Compute Optimizer, S3 Storage Lens, analyze Cost and Usage Reports with Athena/QuickSight.
+
+11. How would you secure network access between services?
+    - Basic: Apply security groups and NACLs with least privilege.
+    - Advanced: Leverage AWS PrivateLink, VPC endpoints, TLS mutual auth, Service Mesh (App Mesh) for east-west traffic.
+
+12. Explain AWS Identity Federation.
+    - Basic: Connect LDAP/AD with IAM roles via SAML or OIDC.
+    - Advanced: Use Amazon Cognito with hosted UI, fine-grained scopes, and multi-tenancy isolation.
+
+13. What is Amazon S3 versioning?
+    - Basic: Enable versioning to keep object history.
+    - Advanced: Use lifecycle policies to transition old versions to Glacier, configure MFA delete for sensitive buckets.
+
+14. How to handle secrets in AWS?
+    - Basic: Store credentials in Secrets Manager or SSM Parameter Store.
+    - Advanced: Automate rotation with Lambda, use encryption context/KMS multi-Region keys, grant least privilege access.
+
+15. What deployment models for compute exist?
+    - Basic: EC2 instances, ECS with EC2 launch type.
+    - Advanced: ECS Fargate, EKS managed nodes, App Runner, Batch for job workloads.
+
+16. How do you configure logging?
+    - Basic: Enable CloudTrail and CloudWatch Logs for services.
+    - Advanced: Centralize logs via Kinesis Firehose, encrypt with KMS, route to OpenSearch or S3 for analytics.
+
+17. What is AWS Well-Architected Framework?
+    - Basic: Five pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization.
+    - Advanced: Use the Well-Architected Tool, run reviews, remediate high-risk findings via automated templates.
+
+18. How do you run container workloads?
+    - Basic: Use Amazon ECR for images and ECS/EKS for runtime.
+    - Advanced: Implement multi-cluster EKS, use Karpenter/Cluster Autoscaler, adopt service meshes for observability.
+
+19. Describe disaster recovery options.
+    - Basic: Backups to S3 + lifecycle policies.
+    - Advanced: Pilot Light, Warm Standby, Multi-Region active-active using Route 53 failover and RDS cross-region replicas.
+
+20. Explain AWS Marketplace.
+    - Basic: Acquire pre-built AMIs/containers from vendors.
+    - Advanced: Use private marketplace, automate procurement via Service Catalog, integrate license manager.
+
+21. What’s the difference between Vertical and Horizontal scaling?
+    - Basic: Vertical adds CPU/memory to one instance; horizontal adds nodes.
+    - Advanced: Use Auto Scaling policies, dynamic capacity providers for ECS, scale RDS read replicas, scale DynamoDB with auto scaling.
+
+22. How do you automate infrastructure drift detection?
+    - Basic: AWS Config records resource snapshots.
+    - Advanced: Lambda remediations, drift detection APIs, integration with Security Hub findings.
+
+23. Explain AWS Lambda best practices.
+    - Basic: Keep handler lightweight, avoid long-running tasks, monitor errors via CloudWatch.
+    - Advanced: Implement provisioned concurrency, use layers for shared libraries, capture metrics with Custom CloudWatch and X-Ray.
+
+24. What is Amazon Aurora?
+    - Basic: MySQL/postgres-compatible managed relational database.
+    - Advanced: Use Aurora Serverless v2, Global DB for cross-region reads, backtrack to undo errors.
+
+25. How would you set up a CI/CD pipeline?
+    - Basic: CodeCommit → CodeBuild → CodeDeploy or CloudFormation deploy.
+    - Advanced: Integrate GitHub/GitLab, run security scans (CodeGuru, Inspector), adopt canary/blue-green via Traffic Shifting.
+
+26. Describe data lake options.
+    - Basic: Store raw files in S3 and catalog with Glue Data Catalog.
+    - Advanced: Use Lake Formation permissions, Athena federated queries, EMR for ETL, OpenSearch for analytics.
+
+27. How to implement caching?
+    - Basic: Use CloudFront in front of S3 or ALB.
+    - Advanced: Implement Lambda@Edge for dynamic responses, integrate DynamoDB Accelerator (DAX), choose TTL/resync strategies.
+
+28. What tools help with cost monitoring?
+    - Basic: Cost Explorer, budgets, billing alarms.
+    - Advanced: AWS CUR with QuickSight dashboards, use AWS Budgets actions to enforce guardrails.
+
+29. What is AWS Organizations?
+    - Basic: Manage multiple accounts with consolidated billing.
+    - Advanced: Enforce SCPs, centralized logging, cross-account roles, Service Control Policy scoping.
+
+30. How to architect secure APIs?
+    - Basic: Use API Gateway with IAM or API keys.
+    - Advanced: Deploy private APIs with VPC links, authorizers (Cognito, Lambda), use WAF rules and throttling.
+
+31. Describe serverless event-driven patterns.
+    - Basic: Connect SNS, SQS, EventBridge to Lambdas.
+    - Advanced: Use EventBridge pipes, Schema Registry, dead-letter queues, error handling with retries and DLQs.
+
+32. How to manage large data migrations?
+    - Basic: Snowball, DataSync, S3 Transfer Acceleration.
+    - Advanced: Use Database Migration Service with ongoing replication, schema conversion, apply transformation rules.
+
+33. Explain AWS edge services.
+    - Basic: CloudFront for CDN.
+    - Advanced: Use Lambda@Edge for personalization, Global Accelerator for low-latency, Shield Advanced for DDoS protection.
+
+34. What is AWS Service Catalog?
+    - Basic: Publish approved products from CloudFormation.
+    - Advanced: Control provisioning constraints, integrate with SCCM, manage portfolios per organizational unit.
+
+35. How do you secure data at rest and in transit?
+    - Basic: Enable SSE-KMS for S3, use TLS for data moving between services.
+    - Advanced: Use Certificate Manager for certificate rotation, enforce encryption via SCPs, use AWS KMS multi-region keys.
+
+36. How does DynamoDB scale?
+    - Basic: Provisioned or on-demand capacity with partitions.
+    - Advanced: Use adaptive capacity, transactions, global tables, TTL for expiry, fine-tune indexes and streams.
+
+37. Describe multi-region deployments.
+    - Basic: Deploy identical stacks in multiple regions with Route 53 failover.
+    - Advanced: Use CloudFront origin failover, Aurora Global DB, data replication via S3 Cross-Region Replication.
+
+38. How do you secure S3 buckets?
+    - Basic: Block public access, use bucket policies.
+    - Advanced: Enable Access Analyzer, Object Lock with compliance mode, require encryption headers, log to CloudTrail.
+
+39. What is AWS Transit Gateway?
+    - Basic: Central hub connecting VPCs and on-prem.
+    - Advanced: Use routing tables, inter-region peering, propagate routes via Route 53 Resolver endpoints.
+
+40. How to reduce risk from IAM privilege creep?
+    - Basic: Grant least privilege, avoid root usage.
+    - Advanced: Use IAM Access Analyzer, access reviews, permission boundaries, automated role rotation.
+
+41. How do you secure container registries?
+    - Basic: Scan images in Amazon ECR, use lifecycle policies.
+    - Advanced: Set up private endpoints, use image signing with Notary, integrate with Gravity for SBOM & attestation.
+
+42. Describe identity-aware proxying.
+    - Basic: Use Cognito to authenticate web users.
+    - Advanced: Incorporate AWS IAM Identity Center and AppStream or ALB with OIDC, integrate with AWS SSO.
+
+43. What is AWS Batch used for?
+    - Basic: Run batch computing workloads with managed job queues.
+    - Advanced: Optimize compute environments (spot/On-Demand mix), tune node properties, orchestrate dependencies via array jobs.
+
+44. How do you plan for failover testing?
+    - Basic: Simulate AZ failure by shutting down a target.
+    - Advanced: Automate Game Days with Fault Injection Simulator, analyze RPO/RTO.
+
+45. How does Amazon Route 53 support resilience?
+    - Basic: DNS routing policies (Simple, Weighted, Failover).
+    - Advanced: Use health checks, TTL tuning, geoproximity, multi-value routing with CloudWatch alarms.
+
+46. How do you manage secrets and config drift?
+    - Basic: Store secrets in AWS Secrets Manager referencing from Lambda.
+    - Advanced: Create secrets per stage, integrate with Parameter Store hierarchies, use Config rules to detect drift.
+
+47. Explain AWS Certificate Manager.
+    - Basic: Provision TLS certs for CloudFront/ELB free of charge.
+    - Advanced: Automate renewal, request private CAs, attach to API Gateway, monitor expiration.
+
+48. What is Amazon GuardDuty?
+    - Basic: Threat detection using VPC Flow, DNS, CloudTrail logs.
+    - Advanced: Enable across all accounts with automated findings ingestion to Security Hub, custom threat lists.
+
+49. How would you implement auditing?
+    - Basic: Enable CloudTrail and S3 logging.
+    - Advanced: Send logs to Lake Formation catalog, run Athena queries, integrate with SIEM via Kinesis.
+
+50. Describe AWS Control Tower.
+    - Basic: Simplifies multi-account creation with guardrails.
+    - Advanced: Customize landing zone, integrate with Service Catalog, use managed OUs for compliance.

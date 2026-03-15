@@ -4,8 +4,13 @@
  * 
  * Key Highlights: Routing, Authentication, Rate Limiting
  */
+import java.util.List;
+
 public class Q6_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 6 Example...");
+        List<String> downstreamResponses = List.of("payment-ok", "notification-ok");
+        System.out.println("Aggregating downstream responses:");
+        downstreamResponses.forEach(response -> System.out.println("  " + response));
+        System.out.println("Returning merged response to client.");
     }
 }

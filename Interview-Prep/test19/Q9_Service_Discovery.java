@@ -4,8 +4,18 @@
  * 
  * Key Highlights: Eureka, Zookeeper, Config Server
  */
+import java.util.List;
+
 public class Q9_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 9 Example...");
+        List<String> sources = List.of("primary", "secondary");
+        for (String source : sources) {
+            if ("primary".equals(source)) {
+                System.out.println("Primary found unhealthy, switching to fallback.");
+                continue;
+            }
+            System.out.println("Secondary handles request.");
+            break;
+        }
     }
 }

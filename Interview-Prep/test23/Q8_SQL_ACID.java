@@ -6,6 +6,7 @@
  */
 public class Q8_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 8 Example...");
+        System.out.println("Two-phase commit coordinates distributed databases for atomicity.");
+        System.out.println("Prepare -> Commit ensures all nodes ready before final commit.");
     }
 }

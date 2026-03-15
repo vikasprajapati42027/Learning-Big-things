@@ -1,0 +1,5 @@
+1. `docker build -t frontend-microservice ./docker`
+2. `docker run --rm -p 8080:8080 frontend-microservice`
+3. `docker ps --filter ancestor=frontend-microservice`
+4. `docker logs <container-id>`
+5. `docker stop <container-id>`

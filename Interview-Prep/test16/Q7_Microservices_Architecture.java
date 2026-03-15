@@ -6,6 +6,7 @@
  */
 public class Q7_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 7 Example...");
+        System.out.println("Concept 7: Service versioning and contract compatibility.");
+        System.out.println("Clients continue to call v1 while v2 rolls out with feature flags.");
     }
 }

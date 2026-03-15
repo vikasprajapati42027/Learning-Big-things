@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Frameworks Showcase</title>
+    <link rel="stylesheet" href="frameworks.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Frontend Frameworks in Action</h1>
+        <p>React, Redux, Angular, and modern tooling stitched together.</p>
+      </header>
+
+      <section class="framework-frameworks">
+        <article>
+          <h2>React Hooks</h2>
+          <pre><code>function Counter() {
+  const [count, setCount] = useState(0);
+  useEffect(() => console.log(count), [count]);
+  return <button onClick={() => setCount((c) => c + 1)}>{count}</button>;
+}</code></pre>
+          <button data-action="react">Run React Demo</button>
+        </article>
+        <article>
+          <h2>Redux</h2>
+          <pre><code>const slice = createSlice({
+  name: 'inventory',
+  initialState: [],
+  reducers: {...}
+});</code></pre>
+          <button data-action="redux">Inspect Redux State</button>
+        </article>
+        <article>
+          <h2>Angular Component</h2>
+          <pre><code>@Component({
+  selector: 'app-card',
+  template: `<p>{{ title }}</p>`
+})</code></pre>
+          <button data-action="angular">Preview Angular Card</button>
+        </article>
+      </section>
+
+      <section class="framework-info">
+        <p id="framework-output">Click a button to simulate the framework’s output.</p>
+      </section>
+    </main>
+    <script src="frameworks.js"></script>
+  </body>
+</html>

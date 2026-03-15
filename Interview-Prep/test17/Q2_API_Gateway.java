@@ -4,8 +4,22 @@
  * 
  * Key Highlights: Routing, Authentication, Rate Limiting
  */
+import java.util.Optional;
+
 public class Q2_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 2 Example...");
+        Optional<String> token = Optional.ofNullable(getHeader("Authorization"));
+        if (token.filter(t -> t.startsWith("Bearer ")).isPresent()) {
+            System.out.println("Authentication filter passed, token = " + token.get());
+        } else {
+            System.out.println("Authentication filter blocked the request.");
+        }
+    }
+
+    private String getHeader(String name) {
+        if ("Authorization".equals(name)) {
+            return "Bearer abc123";
+        }
+        return null;
     }
 }

@@ -6,6 +6,8 @@
  */
 public class Q4_SQL_Queries {
     public void demo() {
-        System.out.println("Executing SQL_Queries Scenario 4 Example...");
+        System.out.println("SELECT id, customer_id, amount,");
+        System.out.println("SUM(amount) OVER (PARTITION BY customer_id ORDER BY payment_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total");
+        System.out.println("FROM payments;");
     }
 }

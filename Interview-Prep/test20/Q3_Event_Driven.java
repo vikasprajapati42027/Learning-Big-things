@@ -6,6 +6,17 @@
  */
 public class Q3_Event_Driven {
     public void demo() {
-        System.out.println("Executing Event_Driven Scenario 3 Example...");
+        boolean ack = false;
+        int attempts = 0;
+        while (!ack && attempts < 3) {
+            attempts++;
+            System.out.println("Publishing event attempt " + attempts);
+            ack = simulateAck(attempts);
+        }
+        System.out.println(ack ? "Event acknowledged." : "Giving up after retries.");
+    }
+
+    private boolean simulateAck(int attempt) {
+        return attempt > 1;
     }
 }

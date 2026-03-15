@@ -6,6 +6,8 @@
  */
 public class Q9_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 9 Example...");
+        System.out.println("Fallback strategy engaged:");
+        System.out.println("  Primary upstream unavailable -> using cached response.");
+        System.out.println("  Notifying monitoring about degraded mode.");
     }
 }

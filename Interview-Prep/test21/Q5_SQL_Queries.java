@@ -6,6 +6,9 @@
  */
 public class Q5_SQL_Queries {
     public void demo() {
-        System.out.println("Executing SQL_Queries Scenario 5 Example...");
+        System.out.println("SELECT customer_id, SUM(amount) AS total_spent");
+        System.out.println("FROM invoices");
+        System.out.println("GROUP BY customer_id");
+        System.out.println("HAVING SUM(amount) > 1000;");
     }
 }

@@ -6,6 +6,7 @@
  */
 public class Q9_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 9 Example...");
+        System.out.println("Concept 9: Shared infrastructure like service mesh and distributed tracing.");
+        System.out.println("Mesh injects sidecars for observability and mTLS for service-to-service auth.");
     }
 }

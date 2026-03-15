@@ -6,6 +6,8 @@
  */
 public class Q2_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 2 Example...");
+        System.out.println("Health checks run every 30s:");
+        System.out.println("  payment-service -> status: UP");
+        System.out.println("  order-service -> status: UP");
     }
 }

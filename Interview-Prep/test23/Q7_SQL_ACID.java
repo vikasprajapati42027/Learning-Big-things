@@ -6,6 +6,7 @@
  */
 public class Q7_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 7 Example...");
+        System.out.println("Read phenomena: dirty, non-repeatable, phantom reads.");
+        System.out.println("Serializable prohibits all three; Repeatable Read forbids dirty & non-repeatable.");
     }
 }

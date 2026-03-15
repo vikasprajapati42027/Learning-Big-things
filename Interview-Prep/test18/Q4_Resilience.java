@@ -6,6 +6,15 @@
  */
 public class Q4_Resilience {
     public void demo() {
-        System.out.println("Executing Resilience Scenario 4 Example...");
+        try {
+            callPrimary();
+        } catch (IllegalStateException ex) {
+            System.out.println("Primary failed: " + ex.getMessage());
+            System.out.println("Executing fallback logic.");
+        }
+    }
+
+    private void callPrimary() {
+        throw new IllegalStateException("Primary service unavailable");
     }
 }

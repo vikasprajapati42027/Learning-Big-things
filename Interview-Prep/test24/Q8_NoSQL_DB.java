@@ -6,6 +6,8 @@
  */
 public class Q8_NoSQL_DB {
     public void demo() {
-        System.out.println("Executing NoSQL_DB Scenario 8 Example...");
+        System.out.println("Code: session.startTransaction(); // multi-document update");
+        System.out.println("Query: db.transactions.updateMany({status:'pending'},{ $set:{status:'complete'}})");
+        System.out.println("Docker: docker run -d --name mongo-multi mongo:6");
     }
 }

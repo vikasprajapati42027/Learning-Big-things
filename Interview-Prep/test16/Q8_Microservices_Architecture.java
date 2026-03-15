@@ -6,6 +6,7 @@
  */
 public class Q8_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 8 Example...");
+        System.out.println("Concept 8: Resilience via retries, timeouts, and circuit breakers.");
+        System.out.println("Retries are configured with exponential backoff to avoid thundering herd.");
     }
 }

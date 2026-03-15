@@ -11,15 +11,29 @@
  */
 
 public class Q1_Main {
+    static class BeanWorkQueue {
+        void process() {
+            System.out.println("Processing critical bean tasks...");
+        }
+    }
+
+    static class LifecycleRunner {
+        void executeScenario(BeanWorkQueue queue) {
+            System.out.println("1. Preparing beans for execution.");
+            queue.process();
+            System.out.println("2. Beans are fully initialized and ready.");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("--- Interview Prep Masterclass: Spring Beans Lifecycle ---");
         System.out.println("Executing Scenario for Module 12...");
-        
-        // Comprehensive Logic Implementation
         runScenario();
     }
 
     public static void runScenario() {
-        System.out.println("Module 12 logic executed with senior-level precision.");
+        LifecycleRunner runner = new LifecycleRunner();
+        runner.executeScenario(new BeanWorkQueue());
+        System.out.println("Module 12 lifecycle scenario completed with senior-level precision.");
     }
 }

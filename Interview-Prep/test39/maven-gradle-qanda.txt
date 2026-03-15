@@ -1,0 +1,151 @@
+Maven & Gradle 50 Q&A
+
+1. What is Maven?
+- Build automation and dependency management tool using POM.
+
+2. What is Gradle?
+- Build automation tool using Groovy/Kotlin DSL, supports incremental builds.
+
+3. Maven vs Gradle?
+- Maven uses XML POM and lifecycle phases; Gradle uses DSL and tasks, more flexible.
+
+4. What does `mvn clean compile` mean?
+- `clean` deletes target directory; `compile` compiles source code.
+
+5. What is `mvn package`?
+- Packages compiled code into jar/war per `packaging`.
+
+6. How does Maven manage dependencies?
+- Declare in `<dependencies>`; Maven resolves from repositories (Maven Central).
+
+7. What is `pom.xml`?
+- Project Object Model file defining coordinates, dependencies, plugins, etc.
+
+8. What are Maven plugins?
+- Extend build, e.g., `maven-compiler-plugin`, `spring-boot-maven-plugin`.
+
+9. What phases does Maven have?
+- e.g., validate, compile, test, package, verify, install, deploy.
+
+10. What is Gradle wrapper?
+- Script (`gradlew`) bundling specific Gradle version for the project.
+
+11. How do you run Gradle build?
+- `./gradlew build`.
+
+12. What is `gradle clean`?
+- Removes build output (`build/`), similar to Maven clean.
+
+13. What is a Gradle task?
+- Unit of work, e.g., `compileJava`, `test`.
+
+14. How to add dependency in Gradle?
+- In `build.gradle`: `implementation 'group:artifact:version'`.
+
+15. Why use `mvn dependency:tree`?
+- View dependency hierarchy, detect conflicts.
+
+16. How to skip tests in Maven?
+- `mvn package -DskipTests`.
+
+17. How to skip tests in Gradle?
+- `./gradlew build -x test`.
+
+18. What is Maven repository?
+- Storage of artifacts; local, remote (Central), corporate.
+
+19. How to configure additional repositories in Gradle?
+- Use `repositories { mavenCentral(); maven { url "https://..." } }`.
+
+20. What is lifecycle in Maven?
+- Sequence of phases executed during build.
+
+21. What is `mvn install`?
+- Installs artifact into local repository for reuse.
+
+22. What is Gradle configuration phase?
+- Resolves dependencies before executing tasks.
+
+23. How to define version in Maven?
+- `<version>1.0.0</version>` in `pom`.
+
+24. How to define project structure in Gradle?
+- `src/main/java`, `src/test/java`.
+
+25. What is `mvn verify`?
+- Runs integration tests or checks after package.
+
+26. How to enable incremental builds?
+- Gradle does it automatically; Maven plugin `incremental` available.
+
+27. What is `spotless` plugin?
+- Gradle plugin for formatting code; Maven alternative `fmt-maven-plugin`.
+
+28. How to run specific Maven profile?
+- `mvn -P<profile> clean package`.
+
+29. How to define profile in Maven?
+- `<profiles><profile><id>dev</id>...</profile></profiles>`.
+
+30. How to activate Gradle build variant?
+- Use `-Pprofile` or set project property.
+
+31. What is `mvn dependency:purge-local-repository`?
+- Clears local copies to force re-download.
+
+32. What is Gradle `buildSrc`?
+- Directory for custom plugins and shared logic.
+
+33. How to configure plugin repositories?
+- `pluginRepositories { mavenCentral() }` in Gradle; `<pluginRepositories>` in Maven.
+
+34. What does `mvn test` do?
+- Runs unit tests via Surefire plugin.
+
+35. What is Gradle `test` task?
+- Executes unit tests using JUnit/TestNG frameworks.
+
+36. How to run Spring Boot app with Maven?
+- `mvn spring-boot:run`.
+
+37. How to run Spring Boot app with Gradle?
+- `./gradlew bootRun`.
+
+38. What is Maven Enforcer plugin?
+- Validates Java version, dependency convergence, etc.
+
+39. What is Gradle `build` task?
+- Executes assemble and check lifecycle tasks.
+
+40. How to log dependency insight?
+- `./gradlew dependencyInsight --configuration runtimeClasspath --dependency guava`.
+
+41. What is Maven `site` plugin?
+- Generates project documentation.
+
+42. How to publish artifacts?
+- Maven: `mvn deploy`; Gradle: `./gradlew publish`.
+
+43. What is `mvn versions:display-dependency-updates`?
+- Reports newer versions available.
+
+44. How to manage versions in Gradle?
+- Use `version = '1.0.0'`, apply `com.github.ben-manes.versions` plugin.
+
+45. How to include resources?
+- Maven: `src/main/resources`; Gradle automatically includes.
+
+46. How to run integration tests?
+- Maven: `mvn failsafe:integration-test`; Gradle: custom task.
+
+47. How to cache build artifacts?
+- Gradle: use build cache; Maven: configure Nexus/Ivy for remote cache.
+
+48. What is `gradle wrapper --gradle-version 8.0`?
+- Generates wrapper scripts locked to Gradle 8.0.
+
+49. How to check effective POM?
+- `mvn help:effective-pom`.
+
+50. How to inspect plugin versions?
+- Gradle: `./gradlew dependencies --configuration pluginClasspath`; Maven plugin list via `mvn help:all-profiles`.

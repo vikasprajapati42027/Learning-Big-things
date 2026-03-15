@@ -4,8 +4,17 @@
  * 
  * Key Highlights: Routing, Authentication, Rate Limiting
  */
+import java.util.Map;
+
 public class Q1_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 1 Example...");
+        Map<String, String> routeTable = Map.of(
+            "/payments", "PaymentService",
+            "/orders", "OrderService"
+        );
+        System.out.println("Route table configured:");
+        routeTable.forEach((path, service) -> System.out.println(path + " -> " + service));
+        String path = "/orders";
+        System.out.println("Routing '" + path + "' to " + routeTable.get(path));
     }
 }

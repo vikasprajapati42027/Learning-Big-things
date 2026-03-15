@@ -4,8 +4,17 @@
  * 
  * Key Highlights: Kafka, RabbitMQ, Publisher-Subscriber
  */
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Q8_Event_Driven {
     public void demo() {
-        System.out.println("Executing Event_Driven Scenario 8 Example...");
+        Queue<String> dlq = new LinkedList<>();
+        try {
+            throw new RuntimeException("Processing failed");
+        } catch (RuntimeException ex) {
+            dlq.add("Event moved to DLQ: " + ex.getMessage());
+        }
+        dlq.forEach(System.out::println);
     }
 }

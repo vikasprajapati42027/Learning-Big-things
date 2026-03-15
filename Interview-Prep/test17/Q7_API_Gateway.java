@@ -6,6 +6,9 @@
  */
 public class Q7_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 7 Example...");
+        System.out.println("Logging request/response metadata:");
+        System.out.println("  Request ID: req-1001");
+        System.out.println("  Status: 200");
+        System.out.println("  Latency: 22ms");
     }
 }

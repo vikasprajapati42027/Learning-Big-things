@@ -6,6 +6,9 @@
  */
 public class Q8_API_Gateway {
     public void demo() {
-        System.out.println("Executing API_Gateway Scenario 8 Example...");
+        System.out.println("Applying security policies:");
+        System.out.println("  - TLS enforced");
+        System.out.println("  - mTLS verification");
+        System.out.println("  - IP whitelisted");
     }
 }

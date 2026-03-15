@@ -1,0 +1,154 @@
+Caching Strategies 50 Q&A
+
+1. What is caching?
+- Store frequently accessed data close to consumers to reduce latency.
+
+2. Benefits?
+- Lower latency, reduced backend load, cost savings.
+
+3. Cache locations?
+- In-memory (Redis, Memcached), CDN (CloudFront), browser storage.
+
+4. What is TTL?
+- Time-to-live defines how long cache entries stay valid.
+
+5. Cache invalidation strategies?
+- Basic: time-based TTL.
+- Advanced: explicit invalidation via events or write-through caches.
+
+6. Cache consistency?
+- Basic: eventual consistency.
+- Advanced: use versioned keys or change data capture (CDC) to update caches.
+
+7. What is cache warming?
+- Preload cache before traffic hits (e.g., at deploy time).
+
+8. Types of caching patterns?
+- Cache-aside, Read-through, Write-through, Write-behind.
+
+9. When to use cache-aside?
+- When you want control over what gets cached; application handles loading.
+
+10. What is TTL jitter?
+- Add randomness to TTL to avoid cache stampedes.
+
+11. CDN caching?
+- Cache static assets at edge locations for global delivery.
+
+12. Cache stampede?
+- Many requests miss cache simultaneously.
+- Solution: use locks or request coalescing.
+
+13. Write-through cache?
+- Cache and datastore updated simultaneously.
+
+14. Write-behind cache?
+- Write to cache first and asynchronously flush to database.
+
+15. Read-through cache?
+- Cache handles loading on misses transparently to app.
+
+16. Cache invalidation vs eviction?
+- Invalidation removes based on events; eviction removes due to capacity (LRU, LFU).
+
+17. What is a cache miss?
+- Data not found in cache; fetch from DB.
+
+18. What is a cache hit?
+- Data found in cache; returns quickly.
+
+19. How to measure caching effectiveness?
+- Monitor hit ratio, latency improvement, reduced DB load.
+
+20. What is a CDN invalidation?
+- Remove cached assets from edge locations before TTL expires.
+
+21. Describe Redis.
+- In-memory data store supporting strings, hashes, sets, sorted sets, TTLs, pub/sub.
+
+22. What is Memcached?
+- Simple key-value store for caching with high throughput.
+
+23. Cache eviction policies?
+- LRU, LFU, Random.
+
+24. What is distributed caching?
+- Cache shared across multiple nodes with replication/sharding.
+
+25. How do you secure caches?
+- Use VPC, IAM policies, encryption in transit/at rest, Redis AUTH.
+
+26. How to handle cache serialization?
+- Use JSON or binary formats (e.g., MessagePack, Protocol Buffers).
+
+27. What is query caching?
+- Cache results of expensive DB queries to avoid repeated work.
+
+28. What is object caching?
+- Cache entire objects (e.g., product data) to reduce repeated fetches.
+
+29. How to manage cache size?
+- Monitor usage; scale vertically or horizontally; set eviction policies.
+
+30. Why use multi-tier caching?
+- Combine browser/local caches, edge CDN, and central cache for best performance.
+
+31. How to prevent cache poisoning?
+- Validate keys, use signed URLs, sanitize inputs before caching.
+
+32. What is lazy loading?
+- Load data into cache only when requested.
+
+33. What is proactive prefetching?
+- Predict and prefill cache entries before requests arrive.
+
+34. Cache metrics to monitor?
+- Hit ratio, miss ratio, load success, eviction rate, latency.
+
+35. How to handle cache failures?
+- Failover to database, implement circuit breakers, retries.
+
+36. Cache warming vs prefetching?
+- Warming is manual load; prefetching anticipates demand automatically.
+
+37. What is cache partitioning?
+- Divide cache by namespace or key prefix to scale horizontally.
+
+38. How does TTL affect cost?
+- Longer TTL reduces DB reads but may serve stale data; find balance.
+
+39. What is near-cache?
+- Local cache in application to avoid remote lookups (e.g., Hazelcast near cache).
+
+40. What is cache coherence?
+- Ensure multiple caches stay consistent in distributed environment.
+
+41. How do you handle large objects in cache?
+- Compress, chunk, or store metadata pointing to object in S3.
+
+42. What are cache snapshot backups?
+- Persist cache data to disk to recover fast after restart.
+
+43. What is lazy expiration?
+- Redis expire keys lazily during access to avoid scan.
+
+44. How do you capture cache metrics?
+- Export from Redis/Memcached; integrate with CloudWatch or Prometheus.
+
+45. What is write-behind window?
+- Delay period before cache writes flush to DB.
+
+46. How to integrate caches with CDNs?
+- Use origin pull to fetch from backend or push assets to CDN.
+
+47. How to monitor cache latency?
+- Instrument with distributed tracing; track percentiles.
+
+48. What is cache-as-a-service?
+- Managed caching services (Elasticache, CloudFront, Cloudflare Workers KV).
+
+49. How to handle cache regeneration?
+- Use master key increments to invalidate, or double-checked locking.
+
+50. What is a cache blueprint?
+- Document caching rules, key formulas, TTLs, and fallback logic for teams.

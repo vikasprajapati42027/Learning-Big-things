@@ -6,6 +6,8 @@
  */
 public class Q4_NoSQL_DB {
     public void demo() {
-        System.out.println("Executing NoSQL_DB Scenario 4 Example...");
+        System.out.println("Code: db.payments.updateOne({id:100},{ $set:{status:'processed'}})");
+        System.out.println("Query: db.payments.find({status:'processed'})");
+        System.out.println("Docker: docker exec -it mongo mongo --eval 'use payments'");
     }
 }

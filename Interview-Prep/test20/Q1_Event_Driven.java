@@ -4,8 +4,15 @@
  * 
  * Key Highlights: Kafka, RabbitMQ, Publisher-Subscriber
  */
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class Q1_Event_Driven {
     public void demo() {
-        System.out.println("Executing Event_Driven Scenario 1 Example...");
+        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+        scheduler.schedule(() -> System.out.println("Event published: OrderCreated"), 0, TimeUnit.SECONDS);
+        scheduler.schedule(() -> System.out.println("Subscriber received: OrderCreated"), 1, TimeUnit.SECONDS);
+        scheduler.shutdown();
     }
 }

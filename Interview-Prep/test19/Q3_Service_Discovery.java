@@ -6,6 +6,8 @@
  */
 public class Q3_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 3 Example...");
+        System.out.println("Service discovery events:");
+        System.out.println("  Registered new instance -> audit logs updated.");
+        System.out.println("  Deregistered stale instance -> traffic rerouted.");
     }
 }

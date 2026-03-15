@@ -6,6 +6,8 @@
  */
 public class Q3_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 3 Example...");
+        System.out.println("Concept 3: Polyglot persistence per service.");
+        System.out.println("CheckoutService uses SQL, RecommendationService uses NoSQL.");
+        System.out.println("Each service owns its own datastore boundary.");
     }
 }

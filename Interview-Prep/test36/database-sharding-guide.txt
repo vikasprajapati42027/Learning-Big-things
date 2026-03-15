@@ -1,0 +1,31 @@
+Database Sharding Q&A
+
+1. What is sharding?
+- Partitioning data across multiple databases to scale.
+
+2. Types of sharding?
+- Horizontal (rows) and Vertical (tables).
+
+3. Shard key?
+- Determines distribution; choose cardinality and access patterns.
+
+4. What is re-sharding?
+- Moving data between shards; requires resharding strategies (e.g., split/redirection).
+
+5. How to route queries?
+- Use a router/proxy (e.g., application logic, ProxySQL) mapping keys to shards.
+
+6. What is a shard map?
+- Metadata catalog telling services where data lives.
+
+7. Handling joins across shards?
+- Avoid cross-shard joins; use denormalization or multi-query aggregation.
+
+8. Failover strategies?
+- Each shard should have replicas; failover via replica promotion.
+
+9. Monitoring?
+- Track per-shard latency, load, replication lag.
+
+10. Resharding tools?
+- AWS Aurora Global DB, Vitess, Spanner for transparent scaling.

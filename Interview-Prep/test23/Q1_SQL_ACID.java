@@ -6,6 +6,7 @@
  */
 public class Q1_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 1 Example...");
+        System.out.println("Atomicity: either all statements run or none.");
+        System.out.println("Example: transfer funds -> debit and credit occur together.");
     }
 }

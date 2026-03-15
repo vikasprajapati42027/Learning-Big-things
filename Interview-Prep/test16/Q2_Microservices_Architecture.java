@@ -6,6 +6,10 @@
  */
 public class Q2_Microservices_Architecture {
     public void demo() {
-        System.out.println("Executing Microservices_Architecture Scenario 2 Example...");
+        System.out.println("Concept 2: Auto-scaling triggers scale-out.");
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Scaling replica #" + i + " is healthy.");
+        }
+        System.out.println("Scaling decisions happen via metrics-driven controller.");
     }
 }

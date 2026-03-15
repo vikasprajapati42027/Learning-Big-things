@@ -9,17 +9,36 @@
  * 2. Implementation details in a production environment.
  * 3. Handling concurrency and edge cases in Advanced Topic in Module 22.
  */
+import java.util.*;
+
+class QueryPlan {
+    final String description;
+    final double cost;
+
+    QueryPlan(String description, double cost) {
+        this.description = description;
+        this.cost = cost;
+    }
+
+    void execute() {
+        System.out.println("Running plan [" + description + "] with estimated cost " + cost);
+    }
+}
 
 public class Q1_Main {
     public static void main(String[] args) {
         System.out.println("--- Interview Prep Masterclass: Advanced Topic in Module 22 ---");
         System.out.println("Executing Scenario for Module 22...");
-        
-        // Comprehensive Logic Implementation
         runScenario();
     }
 
     public static void runScenario() {
-        System.out.println("Module 22 logic executed with senior-level precision.");
+        List<QueryPlan> plans = List.of(
+            new QueryPlan("Index scan on orders", 12.5),
+            new QueryPlan("Join customers + orders filtered by date", 8.2),
+            new QueryPlan("Aggregation with partition elimination", 5.1)
+        );
+        plans.forEach(QueryPlan::execute);
+        System.out.println("Advanced SQL performance scenario completed with senior-level precision.");
     }
 }

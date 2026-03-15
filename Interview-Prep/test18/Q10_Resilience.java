@@ -6,6 +6,10 @@
  */
 public class Q10_Resilience {
     public void demo() {
-        System.out.println("Executing Resilience Scenario 10 Example...");
+        System.out.println("Resilience summary:");
+        System.out.println("  Circuit Breaker ensures isolation.");
+        System.out.println("  Bulkhead segregates resources.");
+        System.out.println("  Retry with backoff rescues transient faults.");
+        System.out.println("  Fallback maintains user experience during outages.");
     }
 }

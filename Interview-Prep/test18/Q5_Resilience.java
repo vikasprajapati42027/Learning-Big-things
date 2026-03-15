@@ -6,6 +6,15 @@
  */
 public class Q5_Resilience {
     public void demo() {
-        System.out.println("Executing Resilience Scenario 5 Example...");
+        long start = System.currentTimeMillis();
+        try {
+            Thread.sleep(150);
+            System.out.println("Service responded within time.");
+        } catch (InterruptedException ignored) {
+        }
+        long duration = System.currentTimeMillis() - start;
+        if (duration > 100) {
+            System.out.println("Timeout occurred (duration: " + duration + "ms); canceling request.");
+        }
     }
 }

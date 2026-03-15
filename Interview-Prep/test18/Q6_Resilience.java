@@ -6,6 +6,12 @@
  */
 public class Q6_Resilience {
     public void demo() {
-        System.out.println("Executing Resilience Scenario 6 Example...");
+        int currentLoad = 85;
+        int maxLoad = 80;
+        if (currentLoad > maxLoad) {
+            System.out.println("Load too high (" + currentLoad + "%). Shedding low-priority requests.");
+        } else {
+            System.out.println("Load acceptable; processing all requests.");
+        }
     }
 }

@@ -4,8 +4,13 @@
  * 
  * Key Highlights: Eureka, Zookeeper, Config Server
  */
+import java.util.List;
+import java.util.Random;
+
 public class Q6_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 6 Example...");
+        List<String> instances = List.of("10.0.0.1:8080", "10.0.0.2:8080");
+        String chosen = instances.get(new Random().nextInt(instances.size()));
+        System.out.println("Load balancer picked: " + chosen);
     }
 }

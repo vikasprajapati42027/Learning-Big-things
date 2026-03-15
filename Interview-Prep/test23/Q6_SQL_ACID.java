@@ -6,6 +6,7 @@
  */
 public class Q6_SQL_ACID {
     public void demo() {
-        System.out.println("Executing SQL_ACID Scenario 6 Example...");
+        System.out.println("Locking strategy: SELECT FOR UPDATE prevents dirty writes.");
+        System.out.println("Two transactions can't update same row simultaneously.");
     }
 }

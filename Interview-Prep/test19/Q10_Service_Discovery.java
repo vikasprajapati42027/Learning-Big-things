@@ -6,6 +6,7 @@
  */
 public class Q10_Service_Discovery {
     public void demo() {
-        System.out.println("Executing Service_Discovery Scenario 10 Example...");
+        System.out.println("Config server instructs Eureka clients to prefer region=us-east.");
+        System.out.println("Clients refresh config on /refresh endpoint.");
     }
 }
