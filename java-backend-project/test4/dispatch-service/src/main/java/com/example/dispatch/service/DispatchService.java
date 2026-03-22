@@ -1,0 +1,27 @@
+package com.example.dispatch.service;
+
+import com.example.common.constants.Topics;
+import com.example.common.events.RideAssignedEvent;
+import com.example.common.events.RideRequestedEvent;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+@Service
+public class DispatchService {
+    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final AtomicLong driverCounter = new AtomicLong(1);
+
+    public DispatchService(KafkaTemplate<String, Object> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void assignDriver(RideRequestedEvent event) {
+        // naive round-robin mock driver assignment
+        long driverId = driverCounter.getAndIncrement();
+        String driverName = "Driver" + driverId;
+        RideAssignedEvent assigned = new RideAssignedEvent(event.rideId(), driverId, driverName, "CAR-" + driverId);
+        kafkaTemplate.send(Topics.RIDE_ASSIGNED, assigned);
+    }
+}

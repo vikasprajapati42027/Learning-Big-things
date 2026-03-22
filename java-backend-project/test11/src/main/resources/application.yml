@@ -1,0 +1,8 @@
+server:
+  port: 8700
+spring:
+  application:
+    name: distributed-storage
+storage:
+  primary: storage/primary
+  replicas: storage/replica1,storage/replica2

@@ -1,0 +1,10 @@
+server:
+  port: 8800
+spring:
+  application:
+    name: realtime-stocks
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

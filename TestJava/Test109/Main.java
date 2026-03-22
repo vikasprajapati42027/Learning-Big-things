@@ -17,19 +17,19 @@ public class Main {
         AtomicInteger completedTasks = new AtomicInteger(0);
 
         long startTime = System.currentTimeMillis();
-
-        // Standard OS-bound Thread Pool
-        try (ExecutorService executor = Executors.newFixedThreadPool(100)) {
-            for (int i = 0; i < taskCount; i++) {
-                executor.submit(() -> {
-                    try {
-                        Thread.sleep(10); // Simulate blocking work
-                    } catch (InterruptedException e) {}
-                    completedTasks.incrementAndGet();
-                });
-            }
-            executor.shutdown();
-        }
+//
+//        // Standard OS-bound Thread Pool
+//        try (ExecutorService executor = Executors.newFixedThreadPool(100)) {
+//            for (int i = 0; i < taskCount; i++) {
+//                executor.submit(() -> {
+//                    try {
+//                        Thread.sleep(10); // Simulate blocking work
+//                    } catch (InterruptedException e) {}
+//                    completedTasks.incrementAndGet();
+//                });
+//            }
+//            executor.shutdown();
+//        }
 
         long endTime = System.currentTimeMillis();
         

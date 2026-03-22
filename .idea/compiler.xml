@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kafka-learning" />
+        <module name="department-service" />
+        <module name="employee-service (4)" />
+        <module name="employee-service (3)" />
+        <module name="employee-service (2)" />
+        <module name="employee-service (1)" />
+        <module name="employee-service" />
+        <module name="department-service (1)" />
+        <module name="config-server" />
+        <module name="department-service (3)" />
+        <module name="department-service (2)" />
+        <module name="api-gateway" />
+        <module name="service-registry" />
+        <module name="jwt-profile-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

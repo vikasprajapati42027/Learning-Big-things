@@ -1,0 +1,133 @@
+# Test 2: Scala Basic Series
+
+## Overview
+This lab organizes Scala demonstrations into files that begin with `basicN_`, covering control flow, async helpers, DSLs, and stateful services.
+
+### Contents
+- `basic1_PatternShowcase`: sealed-trait parsing plus guards and filters.
+- `basic2_FunctionToolkit`: currying, default params, varargs, closures, extractor, and builder patterns.
+- `basic3_AdvancedFunctionality`: tail recursion, trampolines, `Either` helpers, and reader-like builders.
+- `basic4_AsyncCombinators`: Future composition and chaining with blocking only at the final result.
+- `basic5_StreamsTransformer`: pipelines built from `LazyList` to process infinite sequences lazily.
+- `basic6_ResourceManagement`: `Using`-backed readers to safely close resources.
+- `basic7_TypeclassOps`: lightweight typeclass examples with implicit `Renderable` instances.
+- `basic8_JsonDsl`: tiny JSON AST with helper builders and `stringify` output.
+- `basic9_SummaryAggregators`: data summarization with `groupBy` and `map` aggregation.
+- `basic10_StatefulService`: sealed-state FSM for service commands with transition logging.
+- `basic11_ValidationPipeline`: `Either`-based validation that collects missing fields.
+- `basic12_ActionScripting`: immutable builder that logs scripted actions.
+- `basic13_RefinedTypes`: positive integers enforced through a private constructor.
+- `basic14_MonadicFlow`: optional/list for-comprehension to thread multiple effects.
+- `basic15_EventCollector`: mutable helper that aggregates recorded events.
+- `basic16_ConfigLoader`: config discovery with `Option` chaining.
+- `basic17_SecureHashing`: SHA-256 hashing for deterministic digests.
+- `basic18_CachingLayer`: simple in-memory cache with lazy defaults.
+- `basic19_Backpressure`: naive producer/consumer coordination with wait/notify.
+- `basic20_CommandRunner`: quick command runner that just logs calls.
+- `basic21_ReactiveBuffer`: bounded buffer with subscriber callbacks.
+- `basic22_OpticHelpers`: manual lenses for targeting nested fields.
+- `basic23_UnitAware`: type-safe unit wrappers for physical quantities.
+- `basic24_ErrorAggregator`: accumulate validation errors from multiple checks.
+- `basic25_TemporalScheduler`: delayed futures returning tick messages.
+- `basic26_JsonPatch`: map-based JSON patch application.
+- `basic27_ActorlessQueue`: tiny queue without actor libraries.
+- `basic28_AnalyticsPipeline`: weighted scoring over event streams.
+- `basic29_EventTrace`: event recorder capturing history logs.
+- `basic30_ConfigValidationFlow`: sealed validation states capturing unsupported configs.
+- `basic31_ConcurrentCounter`: synchronized counter incremented by multiple threads.
+- `basic32_DataNormalizer`: trimming, lower-casing, and deduplicating raw strings.
+- `basic33_EventRouter`: match-based routing for incoming events.
+- `basic34_ConfigMerger`: map merging that favors override entries.
+- `basic35_SequenceNavigator`: adjacent differences via sliding inspection.
+- `basic36_RateLimiter`: tiny rate limiter with nanosecond windows.
+- `basic37_CircuitBreaker`: fails fast once the breaker is open.
+- `basic38_CustomExceptions`: domain-specific exception extractor.
+- `basic39_PayloadTracer`: index-aware payload tracing helper.
+- `basic40_MetricsReporter`: in-memory metric aggregation with dumps.
+- `basic41_StreamSampler`: conditional sampling over a lazy stream.
+- `basic42_ConfigPublisher`: publish/subscribe callbacks for config data.
+- `basic43_TokenBucket`: simple synchronized token bucket guard.
+- `basic44_DeltaCalculator`: compute deltas between readings.
+- `basic45_FeatureFlag`: map-backed feature gating checks.
+- `basic46_JsonZipper`: combine maps into `Either`-tagged entries.
+- `basic47_SchemaValidator`: key pattern validation for schemas.
+- `basic48_PayloadSigner`: HMAC-SHA256 signer for simple payloads.
+- `basic49_MergeSorter`: recursive merge sort on lists.
+- `basic50_RetryOrchestrator`: retry helper that reattempts blocks.
+- `basic51_HealthCheck`: trivial health probe returning "OK".
+- `basic52_CorrelationId`: thread-local correlation id storage.
+- `basic53_ConfigDiff`: diffed map view between configs.
+- `basic54_DataPipeline`: map/filter pipeline producing filtered results.
+- `basic55_FallbackRouter`: route fallback for unknown paths.
+- `basic56_Scoreboard`: pick the highest scoring entry.
+- `basic57_TraceLogger`: simple trace output helper.
+- `basic58_DoubleBuffer`: stub double-buffer writer/reader.
+- `basic59_DurationMetrics`: convert finite durations to seconds.
+- `basic60_ErrorResponder`: respond with error text or ok.
+- `basic61_AsyncLatch`: simple latch completed from another thread.
+- `basic62_ParallelHasher`: multiple MD5 hashes computed concurrently.
+- `basic63_StateAccumulator`: sum-range state accumulators.
+- `basic64_ConfigCache`: tiny mutable config cache helper.
+- `basic65_TimeWindow`: duration comparison helper.
+- `basic66_MonitoringTick`: monitoring tick printer.
+- `basic67_SafeParser`: `Either`-based string parser helper.
+- `basic68_EventAggregator`: pipe-delimited event aggregator.
+- `basic69_SampledStats`: min/max stats from a sample.
+- `basic70_SafeQueue`: queue with offer/poll helpers.
+- `basic71_MetadataEnricher`: add timestamps to metadata.
+- `basic72_PolarityDetector`: simple sentiment scoring.
+- `basic73_EventSummarizer`: grouped tag frequency counts.
+- `basic74_ScopedLogger`: scoped trace logging.
+- `basic75_ParallelMapper`: compute parallel futures collected results.
+- `basic76_StatusMonitor`: static status check returning string.
+- `basic77_TimeProfiler`: measure execution time via System.nanoTime.
+- `basic78_JsonSampler`: filter-even entries from JSON-like map.
+- `basic79_PatternProfiler`: count characters by pattern.
+- `basic80_AsyncProbe`: fire-and-forget probe future.
+- `basic81_StateTracer`: trace state transitions with simple copies.
+- `basic82_FutureAggregator`: collect and sum futures' results.
+- `basic83_MessageAnnotator`: annotate messages with metadata.
+- `basic84_ConfigAudit`: audit configs by flattening key-value pairs.
+- `basic85_CircuitMonitor`: monitor circuit health flags.
+- `basic86_EventFunnel`: filter and sum odd events.
+- `basic87_TimerWindow`: check durations against threshold windows.
+- `basic88_HealthCluster`: report node health statuses.
+- `basic89_FaultInjector`: simple fault-inducing payload wrapper.
+- `basic90_StrategySampler`: uppercase strategy labels for sampling.
+- `basic91_StreamMerger`: merge lazy streams for combined sequences.
+- `basic92_RequestSampler`: random sampling of request ids.
+- `basic93_MetricAverager`: average metrics from a list.
+- `basic94_SequenceMatcher`: compare sequences for equality.
+- `basic95_ReactiveGauge`: indicator reading returning its value.
+- `basic96_TimeAggregator`: sum finite durations safely.
+- `basic97_EventSigner`: SHA-1 signing of event labels.
+- `basic98_PayloadBalancer`: simple average-based payload balancing.
+- `basic99_SyncSignal`: emit sync signals via console output.
+- `basic100_StateBlueprint`: describe blueprint stages via data class.
+- `basic61_AsyncLatch`: simple latch completed from another thread.
+- `basic62_ParallelHasher`: multiple MD5 hashes computed concurrently.
+- `basic63_StateAccumulator`: sum-range state accumulators.
+- `basic64_ConfigCache`: tiny mutable config cache helper.
+- `basic65_TimeWindow`: duration comparison helper.
+- `basic66_MonitoringTick`: monitoring tick printer.
+- `basic67_SafeParser`: `Either`-based string parser helper.
+- `basic68_EventAggregator`: pipe-delimited event aggregator.
+- `basic69_SampledStats`: min/max stats from a sample.
+- `basic70_SafeQueue`: queue with offer/poll helpers.
+- `basic51_HealthCheck`: trivial health probe returning "OK".
+- `basic52_CorrelationId`: thread-local correlation id storage.
+- `basic53_ConfigDiff`: diffed map view between configs.
+- `basic54_DataPipeline`: map/filter pipeline producing filtered results.
+- `basic55_FallbackRouter`: route fallback for unknown paths.
+- `basic56_Scoreboard`: pick the highest scoring entry.
+- `basic57_TraceLogger`: simple trace output helper.
+- `basic58_DoubleBuffer`: stub double-buffer writer/reader.
+- `basic59_DurationMetrics`: convert finite durations to seconds.
+- `basic60_ErrorResponder`: respond with error text or ok.
+
+## Run
+```bash
+cd Scala-Learning/test2
+sbt "runMain com.example.scalalearning.test2.basic1_PatternShowcase"
+```
+Replace the `runMain` argument with any `basicN_` entry point to exercise that demonstration.

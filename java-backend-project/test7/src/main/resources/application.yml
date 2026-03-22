@@ -1,0 +1,9 @@
+server:
+  port: 8300
+spring:
+  application:
+    name: rate-limiter-demo
+  data:
+    redis:
+      host: localhost
+      port: 6379

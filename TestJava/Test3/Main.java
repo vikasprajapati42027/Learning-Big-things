@@ -11,5 +11,11 @@ public class Main {
         donald.swim();
 
         System.out.println("\nOne class, multiple behaviors: SUCCESS!");
+
+
+        Swimmable  res = () -> System.out.println("Duck are smart now");
+        res.swim();
+        Swimmable res1= new Duck();
+        res1.swim();
     }
 }
